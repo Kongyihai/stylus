@@ -1,0 +1,21 @@
+@import "../../jquery/lib/reset.css"
+@import "./variable"
+getShadowWidth()
+	arguments[0]/arguments[1]*10
+setBackgroundColor()
+	background-color arguments[1]
+// div
+// 	width 400px
+// 	height 400px
+.func
+	width 200px
+	height 40px
+	border 2px solid rgb(0,0,0)
+	box-shadow 0 0 getShadowWidth(@width,@height) 0 rgb(255,0,0)
+	setBackgroundColor rgb(255,0,0) rgb(0,0,255)
+font-size-scale = 1 2 3 4 5
+for num in font-size-scale
+	div:nth-of-type({num})
+		font-size (num*20)px
+
+		 

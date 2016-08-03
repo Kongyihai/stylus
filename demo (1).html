@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../jquery/lib/reset.css" />
+		<link rel="stylesheet" href="./css/selector.css" />
+		<title>about stylus</title>
+	</head>
+	<body>
+		<div class="test"></div>
+		<script src="../jquery/lib/jquery@2.2.4.min.js"></script>
+		<script>
+			// $.ajax({
+			// 	url : "http://www.ikindness.cn/api/test/getInfo",
+			// 	data : {
+			// 		userId : 31514112//用户id，number类型随便给
+			// 	}
+			// }).done(function(data){
+				
+				$.ajax({
+					url : "http://www.ikindness.cn/api/test/getFund",
+					data : {//不给此参数，请求一次返回所有，或者给此参数，分别请求6种type
+						type : 1//与楼层大类同序
+					}
+				}).done(function(data){
+					var _data = data.data;
+					
+					for(var i = 0, dataLen = _data.length; i < dataLen; i++){
+						var temp = "";
+						for(var j in _data[i]){
+							temp += j === "image" ? "<img src=\"" + _data[i][j] + "\"/>" : "<span>" + j + ":" + _data[i][j] + "</span>";
+						}
+						$(".test").append("<p>" + temp + "</p>");
+					}
+				});
+			// });
+		</script>
+	</body>
+</html>
